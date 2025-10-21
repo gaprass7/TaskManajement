@@ -7,10 +7,6 @@ const datatableCall = (targetId, url, columns) => {
             type: "GET",
             data: function (d) {
                 d.mode = "datatable";
-                d.bulan = $("#bulan_filter").val() ?? null;
-                d.tahun = $("#tahun_filter").val() ?? null;
-                d.tanggal = $("#tanggal_filter").val() ?? null;
-                d.category = $("#category_filter").val() ?? null;
             },
         },
         columns: columns,
@@ -100,7 +96,6 @@ const getModal = (targetId, url = null, fields = null, hidefields = null) => {
         }
     });
 
-
     // Tampilkan semua form group dulu (reset jika sebelumnya ada yang disembunyikan)
     $(`#${targetId} .form-control`).each(function () {
         $(this).closest(".form-group").show();
@@ -136,11 +131,6 @@ const getModal = (targetId, url = null, fields = null, hidefields = null) => {
                     }
                 });
             }
-
-            // Jalankan custom callback jika ada
-            if (typeof window.customSuccessCallback === "function") {
-                window.customSuccessCallback(targetId, response.data);
-            }
         };
 
         const errorCallback = function (error) {
@@ -150,7 +140,6 @@ const getModal = (targetId, url = null, fields = null, hidefields = null) => {
         ajaxCall(url, "GET", null, successCallback, errorCallback);
     }
 };
-
 
 
 const handleValidationErrors = (error, formId = null, fields = null) => {

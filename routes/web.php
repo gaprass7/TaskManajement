@@ -8,8 +8,8 @@ use App\Http\Controllers\User\TaskController as UserTaskController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect('/tasks');
+})->middleware('auth');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('admin')->middleware('role:admin')->as('admin.')->group(function () {
@@ -27,4 +27,4 @@ Route::middleware(['auth'])->group(function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

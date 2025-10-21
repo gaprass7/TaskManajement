@@ -73,7 +73,7 @@
     <script type="text/javascript" src="{{ asset('static/admin/js/script.js') }}"></script>
     
     @stack('script')
-    <script src="{{ asset('static/admin/js/custom.js') }}"></script>
+    <script src="{{ asset('static/admin/js/helper.js') }}"></script>
 </body>
 
 </html>
