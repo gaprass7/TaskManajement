@@ -15,7 +15,7 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="ml-4" style="color: white">RA KOPIRAN KASIR</h5>
+                    <h5 class="ml-4" style="color: white">Task Management</h5>
                     <a class="mobile-options waves-effect waves-light">
                         <i class="ti-more"></i>
                     </a>
@@ -56,33 +56,18 @@
                             </ul>
                         </li>
                         <li class="user-profile header-notification">
-                            {{-- <a href="#!" class="waves-effect waves-light">
+                            <a href="javascript:void(0);" class="waves-effect waves-light">
                                 <img class="img-80 img-radius" src="{{Auth::user()->photo ? asset('storage/image/user/' . Auth::user()->photo) : asset('storage/image/user/noprofile.png') }}" alt="User-Profile">
                                 <span>{{ Auth::user()->name }}</span>
                                 <i class="ti-angle-down"></i>
-                            </a> --}}
+                            </a>
                             <ul class="show-notification profile-notification">
                                 <li class="waves-effect waves-light">
-                                    <a href="#!">
-                                        <i class="ti-settings"></i> Settings
-                                    </a>
-                                </li>
-                                <li class="waves-effect waves-light">
-                                    <a href="user-profile.html">
+                                    <a href="{{ url('profile') }}">
                                         <i class="ti-user"></i> Profile
                                     </a>
                                 </li>
                                 <li class="waves-effect waves-light">
-                                    <a href="email-inbox.html">
-                                        <i class="ti-email"></i> My Messages
-                                    </a>
-                                </li>
-                                <li class="waves-effect waves-light">
-                                    <a href="auth-lock-screen.html">
-                                        <i class="ti-lock"></i> Lock Screen
-                                    </a>
-                                </li>
-                                {{-- <li class="waves-effect waves-light">
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         <i class="ti-layout-sidebar-left"></i> {{ __('Logout') }}
@@ -90,7 +75,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </li> --}}
+                                </li>
                             </ul>
                         </li>
                     </ul>

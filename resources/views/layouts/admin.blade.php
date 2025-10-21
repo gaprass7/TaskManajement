@@ -37,7 +37,6 @@
   
     @include('components.admin.pre-loader')
     @include('components.admin.header')
-    {{-- @include('components.admin.sidebar') --}}
     @include('components.admin.page-header')
     @yield('main')
     @include('components.admin.footer')

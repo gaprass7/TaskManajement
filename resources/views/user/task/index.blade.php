@@ -64,7 +64,7 @@
         </div>
     </div>
 </div> 
-@include('admin.task.create')
+@include('user.task.create')
 @endsection
 @push('script')
         <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -74,7 +74,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function () {
-        datatableCall('tbl_list', '{{ route('admin.tasks.index') }}', [
+        datatableCall('tbl_list', '{{ route('tasks.index') }}', [
             {
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
@@ -106,19 +106,15 @@
             },
         ]);
 
-        $("#createBtn").click(function() {
-            getModalEdit()
-        });
-
         $("#saveData").submit(function(e) {
             setButtonLoadingState("#saveData .btn.btn-primary", true);
             e.preventDefault();
             const kode = $("#saveData #id").val();
-            let url = "{{ route('admin.tasks.store') }}";
+            let url = "{{ route('tasks.store') }}";
             const data = new FormData(this);
             if (kode !== "") {
                 data.append("_method", "PUT");
-                url = `/admin/tasks/${kode}`;
+                url = `/tasks/${kode}`;
             }
             const successCallback = function(response) {
                 // $('#saveData #image').parent().find(".dropify-clear").trigger('click');
@@ -155,9 +151,5 @@
         });
 
     });
-    
-    function getModalEdit() {
-        select2ToJson("#user_id", "/admin/users");
-    }
 </script>
 @endpush
